@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Display Page</title>
+    </head>
+
+    <body>
+        <h3 align="center">Display Records</h3>
+
+        <table align="center" border="1">
+            <tr align="center">
+                <th align="center">ID</th>
+                <th align="center">Product Name</th>
+                <th align="center">Product Brand</th>
+                <th align="center">Product Price</th>
+                <th align="center">Product Stock</th>
+            </tr>
+
+            {% for i in data %}
+            <tr>
+                <td align="center">{{i.pid}}</td>
+                <td align="center">{{i.pname}}</td>
+                <td align="center">{{i.pbrand}}</td>
+                <td align="center">{{i.pprice}}</td>
+                <td align="center">{{i.pstock}}</td>
+            </tr>
+            {% endfor %}
+
+            <tr>
+                <td align="center" colspan="5">
+                    <a href="{% url 'add' %}">Add New Data?</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="5">
+                    <a href="{% url 'search' %}">Search Product?</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

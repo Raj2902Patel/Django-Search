@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Product</title>
+</head>
+<body align="center">
+    <h3>Search Your Requirements</h3>
+
+
+<form action="{% url 'search' %}" method="POST">
+    {% csrf_token %} 
+    <input type="text" name="name" placeholder="Search Products">
+    
+    <input type="submit" name="submit" value="Search">
+</form>
+
+<br><br>
+
+<table border="2" align="center">
+
+    <tr>
+        <th align="center">Product Name</th>
+        <th align="center">Product Brand</th>
+        <th align="center">Product Price</th>
+        <th align="center">Product Stock</th>
+    </tr>
+    
+    {% for result in results %}
+    <tr>
+        <td align="center">{{result.pname}}</td>
+        <td align="center">{{result.pbrand}}</td>
+        <td align="center">{{result.pprice}}</td>
+        <td align="center">{{result.pstock}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+
+    <table align="center">
+    <tr align="center">
+        <td align="center" colspan="5">
+            <a href="{% url 'add' %}">Add New Data?</a>
+        </td>
+    </tr>
+    </table>
+
+    
+
+    <table align="center">
+    <tr>
+        <td align="center" colspan="5">
+            <a href="{% url 'display' %}">Display Data?</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
